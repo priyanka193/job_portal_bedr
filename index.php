@@ -59,8 +59,8 @@ while($row = pg_fetch_array($result))
 				<div class="left" ><h3 style="display: inline-block">Job Title: '.$row[6].'</h3></div>
 			 
 			  <div class="right" >
-				<input type="checkbox" id="'.$row[0].'"  class="unsavedButton" value="Save Job" />
-				<label for="'.$row[0].'">Mark to Save</label>
+				<input type="checkbox" id="'.$row[0].'" value="Save Job" />
+				<label for="'.$row[0].'" class="unsavedButton" >Mark to Save</label>
 			  </div>
 				<p class="grey" >Company Name: '.$row[3].'</p>
 				<p class="grey">Location: '.$row[4].'</p>
