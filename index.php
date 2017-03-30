@@ -26,49 +26,56 @@
 <?php
 	$user_id = $_GET["id"];
 	$dbh = pg_connect("host='ec2-54-243-185-132.compute-1.amazonaws.com' dbname='d2ftjp5a24rakj' user='qqyirgarmsgczz' password='ae82f9bb4e7403bb24d558a33481c09dcad90e4520a9581cde72547a9a3063ca'");
-	$sql = "SELECT * FROM JOB_SEARCH_RESULTS WHERE participant_id='".$user_id."'"; //'O8NnynqQqP1AG6B0jaKL'";//
+	$sql_joblist = "SELECT * FROM JOB_SEARCH_RESULTS WHERE participant_id='".$user_id."'"; //'O8NnynqQqP1AG6B0jaKL'";//
 	
-	$sql1 = "SELECT * FROM PARTICIPANT WHERE participant_id='".$user_id."'"; //'O8NnynqQqP1AG6B0jaKL'";//
+	$sql_participant = "SELECT * FROM PARTICIPANT WHERE participant_id='".$user_id."'"; //'O8NnynqQqP1AG6B0jaKL'";//
 	
 	if(!$dbh)
 		die("error".pg_last_error());
 	
-	$result = pg_query($dbh,$sql);
+	$result = pg_query($dbh,$sql_joblist);
 	if(!$result)
 		die("error".pg_last_error());
 	
-	$participant_result = pg_query($dbh, $sql1);
-	echo '<div class="header clearfix">';
-	echo '<input type="button" id="statusBarButton" value="Send Info">';
-	echo '<p class="white"> Hello '.pg_fetch_array($participant_result)[0].'</p></div>';
-	echo '<div class="jobpage"><h3 class="center">Your Personalized Job Postings</h3>';
+	$participant_result = pg_query($dbh, $sql_participant);
+	echo
+		'
+		<form action="saved.php" method="post">
+		<div class="header clearfix">
+		<input type="submit" id="statusBarButton" value="Save Jobs">
+		<p class="white"> Hello '.pg_fetch_array($participant_result)[0].'</p></div>
+		<div class="jobpage"><h3 class="center">Your Personalized Job Postings</h3>
+		
+		';
 
-	$saved_sql = "INSERT INTO JOB_SEARCH_RESULTS(saved_job) VALUES 'true' WHERE participant_id='".$user_id."'";
+	//$sql_insert_saved = "INSERT INTO JOB_SEARCH_RESULTS(saved_job) VALUES 'true' WHERE job_search_id=".$row[0]."'";
+
 
 while($row = pg_fetch_array($result))
-	{
-		echo '<div class="jobcard">
-				<div class="left" ><h3 style="display: inline-block">Job Title: '.$row[6].'</h3></div>';
-//		echo '		<form action="">
-		echo '<div class="right" ><input id="jobButton" type="button" class="unsavedButton" value="Save Job" /></div>';
-  //  			</form>';
-   //			$saved_sql = "INSERT INTO JOB_SEARCH_RESULTS(saved_job) VALUES 'true' WHERE participant_id='".$user_id."' AND job_search_id=".$row[2]."'";
-   // 			if
-		echo	'<p class="grey" >Company Name: '.$row[3].'</p>
+	{	
+		echo 
+			'
+			<div class="jobcard">
+				<div class="left" ><h3 style="display: inline-block">Job Title: '.$row[6].'</h3></div>
+			 
+			  <div class="right" >
+				<input type="checkbox" id="'.$row[0].'"  class="unsavedButton" value="Save Job" />
+				<label for="'.$row[0].'">Mark to Save</label>
+			  </div>
+				<p class="grey" >Company Name: '.$row[3].'</p>
 				<p class="grey">Location: '.$row[4].'</p>
 				<p class="grey">Posted: '.$row[5].'</p>
 				<p class="grey">Salary Estimate: </p>
 				<p class="black">'.$row[7].'</p>
-
-				
 				<a class="link" href="'.$row[2].'" target="_blank"><i class="fa fa-external-link" style="font-size:11px;color:grey;" aria-hidden="true"></i> view job posting</a>
-				</div>';
+			</div>
+			
+		</form>
+			';
 	}
 	
-
-
-
 	pg_free_result($result);
+	pg_free_result($participant_result);
 	pg_close($dbh);
 ?>
 
