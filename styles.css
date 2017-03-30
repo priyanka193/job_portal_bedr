@@ -100,7 +100,7 @@ a.link{
 }
 
 
-.savedButton {
+.savedJob {
     -webkit-transform: translateZ(0);
     display: inline-block;
     position: relative;
@@ -119,7 +119,7 @@ a.link{
 } 
 
 
-.unsavedButton {
+.unsavedJob {
     display: inline-block;
     -webkit-transform: translateZ(0);
     position: relative;
@@ -153,6 +153,10 @@ a.link{
 .third {
     -webkit-order: 1;
     order: 1;
+}
+
+.hide {
+	display:none;
 }
 
 #statusBarButton {
