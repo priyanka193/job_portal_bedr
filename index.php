@@ -7,7 +7,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script>
 	$(document).ready(function(){
-		$("#jobLabel").click(function(){
+		$(".jobLabel").click(function(){
 			if($(this).hasClass("unsavedJob"))
 				$(this).removeClass("unsavedJob").addClass("savedJob");
 			else
@@ -62,7 +62,7 @@ while($row = pg_fetch_array($result))
 			 
 			  <div class="right" >
 				<input type="checkbox" id="'.$row[0].'" value="Save Job" class="hide"/>
-				<label for="'.$row[0].'" class="unsavedJob" id="jobLabel">Mark to Save</label>
+				<label for="'.$row[0].'" class="unsavedJob jobLabel" >Mark to Save</label>
 			  </div>
 				<p class="grey" >Company Name: '.$row[3].'</p>
 				<p class="grey">Location: '.$row[4].'</p>
