@@ -65,7 +65,7 @@ while($row = pg_fetch_array($result))
 			 
 			  <div class="right" >
 				<input type="checkbox" id="'.$row[0].'" class="hide"/>
-				<label for="'.$row[0].'" name="'.$jobId++.'" class="unsavedJob jobLabel" >Add to your Saved Jobs</label>
+				<label for="'.$row[0].'" name="'.$jobId++.'" class="unsavedJob jobLabel" value="'.$row[0].'">Add to your Saved Jobs</label>
 			  </div>
 				<p class="grey" >Company Name: '.$row[3].'</p>
 				<p class="grey">Location: '.$row[4].'</p>

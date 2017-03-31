@@ -1,3 +1,17 @@
+<html>
+<head>
+	<title>Job Portal</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	</head>
+<body>
+	<div class="header clearfix">
+		<p class="white"> Hello </p>
+	</div>
+	<div class="jobpage">
+		<h3 class="center">Your jobs are successfuly saved!</h3>
+
 <?php
 	//$user_id = $_GET["id"];
 	//$dbh = pg_connect("host='ec2-54-243-185-132.compute-1.amazonaws.com' dbname='d2ftjp5a24rakj' user='qqyirgarmsgczz' password='ae82f9bb4e7403bb24d558a33481c09dcad90e4520a9581cde72547a9a3063ca'");
@@ -9,7 +23,10 @@
 	
 	foreach ($_POST as $key => $value) {
     //do something
-    echo $key . ' has the value of ' . $value;
+    echo '<p>'.$key.' has the value of '.$value.'</p>';
 }
 	
 ?>
+	</div>
+</body>
+</html>
