@@ -52,11 +52,10 @@
 		<p class="white"> Hello '.pg_fetch_array($participant_result)[0].'</p></div>
 		<div class="jobpage"><h3 class="center">Your Personalized Job Postings</h3>
 		
-		';
+		';	
 
-	//$sql_insert_saved = "INSERT INTO JOB_SEARCH_RESULTS(saved_job) VALUES 'true' WHERE job_search_id=".$row[0]."'";
-
-
+	$jobId = 0;
+	
 while($row = pg_fetch_array($result))
 	{	
 		echo 
@@ -65,8 +64,8 @@ while($row = pg_fetch_array($result))
 				<div class="left" ><h3 style="display: inline-block">Job Title: '.$row[6].'</h3></div>
 			 
 			  <div class="right" >
-				<input type="checkbox" id="'.$row[0].'" value="Save Job" class="hide"/>
-				<label for="'.$row[0].'" class="unsavedJob jobLabel" >Add to your Saved Jobs</label>
+				<input type="checkbox" id="'.$row[0].'" class="hide"/>
+				<label for="'.$row[0].'" name="'.$jobId++.'" class="unsavedJob jobLabel" >Add to your Saved Jobs</label>
 			  </div>
 				<p class="grey" >Company Name: '.$row[3].'</p>
 				<p class="grey">Location: '.$row[4].'</p>
