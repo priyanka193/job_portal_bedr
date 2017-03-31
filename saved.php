@@ -22,7 +22,7 @@
 	//$sql_insert_saved = "INSERT INTO JOB_SEARCH_RESULTS(saved_job) VALUES 'true' WHERE job_search_id=".$row[0]."'";
 	
 	
-    echo '<p>'.print_r($_POST).'</p>';
+    print_r($_POST);
 	
 ?>
 	</div>
