@@ -21,10 +21,8 @@
 	
 	//$sql_insert_saved = "INSERT INTO JOB_SEARCH_RESULTS(saved_job) VALUES 'true' WHERE job_search_id=".$row[0]."'";
 	
-	foreach ($_POST as $key => $value) {
-    //do something
-    echo '<p>'.$key.' has the value of '.$value.'</p>';
-}
+	
+    echo '<p>'.print_r($_POST).'</p>';
 	
 ?>
 	</div>
