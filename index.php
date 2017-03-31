@@ -53,8 +53,6 @@
 		<div class="jobpage"><h3 class="center">Your Personalized Job Postings</h3>
 		
 		';	
-
-	$jobId = 0;
 	
 while($row = pg_fetch_array($result))
 	{	
@@ -64,7 +62,7 @@ while($row = pg_fetch_array($result))
 				<div class="left" ><h3 style="display: inline-block">Job Title: '.$row[6].'</h3></div>
 			 
 			  <div class="right" >
-				<input type="checkbox" id="'.$row[0].'" class="hide" value="'.$row[0].'" name="'.$jobId++.'"/>
+				<input type="checkbox" id="'.$row[0].'" class="hide" value="'.$row[0].'" name="jobIds[]"/>
 				<label for="'.$row[0].'" class="unsavedJob jobLabel" >Add to your Saved Jobs</label>
 			  </div>
 				<p class="grey" >Company Name: '.$row[3].'</p>
