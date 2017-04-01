@@ -20,7 +20,7 @@
 	//$sql_participant = "SELECT * FROM PARTICIPANT WHERE participant_id='".$user_id."'"; //'O8NnynqQqP1AG6B0jaKL'";//
 	
 	$jobIds = implode("','", $_POST["jobIds"]);
-	$jobIds = "'".$jobIds."'"
+	$jobIds = "'".$jobIds."'";
 	
 	$sql_update_saved = "UPDATE JOB_SEARCH_RESULTS SET saved_job='true' WHERE job_search_id IN (".$jobIds.")";
 	
