@@ -21,7 +21,7 @@
 	
 	$jobIds = implode(', ', $_POST["jobIds"]);
 	
-	$sql_update_saved = "UPDATE JOB_SEARCH_RESULTS SET saved_job='true' WHERE job_search_id IN (".$jobIds.")";
+	$sql_update_saved = "UPDATE JOB_SEARCH_RESULTS SET saved_job='true' WHERE job_search_id IN (".$_POST["jobIds"].")";
 	
 	echo $sql_update_saved;
     
