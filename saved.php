@@ -19,10 +19,11 @@
 	
 	//$sql_participant = "SELECT * FROM PARTICIPANT WHERE participant_id='".$user_id."'"; //'O8NnynqQqP1AG6B0jaKL'";//
 	
-	//$sql_insert_saved = "INSERT INTO JOB_SEARCH_RESULTS(saved_job) VALUES 'true' WHERE job_search_id=".$row[0]."'";
+	//$sql_update_saved = "UPDATE JOB_SEARCH_RESULTS SET saved_job='true' WHERE job_search_id IN ()";
 	
-	
-    print_r($_POST["jobIds"]);
+	$jobIds = array_values($_POST["jobIds"]);
+	print_r($jobIds);
+    
 	
 ?>
 	</div>
