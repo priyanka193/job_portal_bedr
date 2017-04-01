@@ -22,7 +22,7 @@
 	//$sql_update_saved = "UPDATE JOB_SEARCH_RESULTS SET saved_job='true' WHERE job_search_id IN ()";
 	
 	$jobIds = array_values($_POST["jobIds"]);
-	print_r($jobIds);
+	echo $jobIds;
     
 	
 ?>
