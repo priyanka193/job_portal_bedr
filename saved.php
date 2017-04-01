@@ -30,7 +30,7 @@
 	if(!$result)
 		die("error".pg_last_error());
 	
-	echo $result.' is the result.'
+	echo $result.' is the result.';
 	
 	pg_free_result($result);
 	pg_close($dbh);
