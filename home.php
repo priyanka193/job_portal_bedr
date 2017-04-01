@@ -33,7 +33,7 @@
 	$user_id = $_GET["id"];
 	$dbh = pg_connect("host='ec2-54-243-185-132.compute-1.amazonaws.com' dbname='d2ftjp5a24rakj' user='qqyirgarmsgczz' password='ae82f9bb4e7403bb24d558a33481c09dcad90e4520a9581cde72547a9a3063ca'");
 	$sql_saved_jobs = "SELECT * FROM JOB_SEARCH_RESULTS WHERE participant_id='".$user_id."' and saved_job='true'"; //'O8NnynqQqP1AG6B0jaKL'";//
-	$sql_unsaved_jobs = "SELECT * FROM JOB_SEARCH_RESULTS WHERE participant_id='".$user_id."' and  saved_job='false'"; //'O8NnynqQqP1AG6B0jaKL'";//
+	$sql_unsaved_jobs = "SELECT * FROM JOB_SEARCH_RESULTS WHERE participant_id='".$user_id."' and saved_job='false'"; //'O8NnynqQqP1AG6B0jaKL'";//
 	$sql_participant = "SELECT * FROM PARTICIPANT WHERE participant_id='".$user_id."'"; //'O8NnynqQqP1AG6B0jaKL'";//
 	
 	if(!$dbh)
@@ -53,9 +53,9 @@
 	
 	echo
 		'
-		--<form action="saved.php" method="post">
+		<!--<form action="saved.php" method="post">-->
 		<div class="header clearfix">
-		--<input type="submit" id="statusBarButton" value="Save Jobs">
+		<!--<input type="submit" id="statusBarButton" value="Save Jobs">-->
 		<p class="white"> Hello '.pg_fetch_array($result_participant)[0].'</p></div>
 		<div class="jobpage">
 			<h3 class="center">Your Saved Job Postings</h3>
@@ -69,8 +69,8 @@
 				<div class="left" ><h3 style="display: inline-block">Job Title: '.$row[6].'</h3></div>
 			 
 			  <div class="right" >
-				--<input type="checkbox" id="'.$row[0].'" class="hide" value="'.$row[0].'" name="jobIds[]"/>
-				--<label for="'.$row[0].'" class="unsavedJob jobLabel" >Add to your Saved Jobs</label>
+				<!--<input type="checkbox" id="'.$row[0].'" class="hide" value="'.$row[0].'" name="jobIds[]"/>-->
+				<!--<label for="'.$row[0].'" class="unsavedJob jobLabel" >Add to your Saved Jobs</label>-->
 			  </div>
 				<p class="grey" >Company Name: '.$row[3].'</p>
 				<p class="grey">Location: '.$row[4].'</p>
@@ -80,7 +80,7 @@
 				<a class="link" href="'.$row[2].'" target="_blank"><i class="fa fa-external-link" style="font-size:11px;color:grey;" aria-hidden="true"></i> view job posting</a>
 			</div>
 			
-		--</form>
+		<!--</form>-->
 			';
 	}
 	
@@ -97,8 +97,8 @@
 				<div class="left" ><h3 style="display: inline-block">Job Title: '.$row[6].'</h3></div>
 			 
 			  <div class="right" >
-				--<input type="checkbox" id="'.$row[0].'" class="hide" value="'.$row[0].'" name="jobIds[]"/>
-				--<label for="'.$row[0].'" class="unsavedJob jobLabel" >Add to your Saved Jobs</label>
+				<!--<input type="checkbox" id="'.$row[0].'" class="hide" value="'.$row[0].'" name="jobIds[]"/>-->
+				<!--<label for="'.$row[0].'" class="unsavedJob jobLabel" >Add to your Saved Jobs</label>-->
 			  </div>
 				<p class="grey" >Company Name: '.$row[3].'</p>
 				<p class="grey">Location: '.$row[4].'</p>
@@ -108,7 +108,7 @@
 				<a class="link" href="'.$row[2].'" target="_blank"><i class="fa fa-external-link" style="font-size:11px;color:grey;" aria-hidden="true"></i> view job posting</a>
 			</div>
 			
-		--</form>
+		<!--</form>-->
 			';
 	}
 	pg_free_result($result_unsaved_jobs);
